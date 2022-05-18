@@ -1,0 +1,8 @@
+{
+  "name": "gcf-pubsub-discord",
+  "version": "0.1.0",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^13.7.0"
+  }
+}
