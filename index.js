@@ -7,7 +7,7 @@ const webhookClient = new discord.WebhookClient({
 const handleGCPEvent = (data, attributes) => {
     switch (attributes.type_url) {
         case 'type.googleapis.com/google.container.v1beta1.UpgradeEvent':
-            return `:arrow_up: **Upgrading (${attributes.cluster_location}/${attributes.cluster_name}): ${data}`
+            return `:arrow_up: **Upgrading (${attributes.cluster_location}/${attributes.cluster_name}):** ${data}`
     }
 }
 
