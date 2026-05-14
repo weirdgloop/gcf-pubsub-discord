@@ -19,9 +19,12 @@ const handleGCPLog = (data) => {
         if (payload.kind !== 'Event') return;
 
         switch (payload.reason) {
-            case 'Created':
-            case 'Killing':
-                return `:wrench: ${clusterInfo} ${payload.message} [${data.resource.labels.pod_name}]`;
+            case 'SuccessfulCreate':
+                return `:wrench: ${clusterInfo} ${payload.message} [${payload.involvedObject.name}]`;
+            case 'ScalingReplicaSet':
+                return `:scales: ${clusterInfo} ${payload.message} [${payload.involvedObject.name}]`;
+            case 'SuccessfulDelete':
+                return `:headstone: ${clusterInfo} ${payload.message} [${payload.involvedObject.name}]`;
         }
     }
 }
